@@ -3,8 +3,8 @@ project(netcoredbg)
 
 set(CORECLR_DIR "" CACHE FILEPATH "Path to CoreCLR source directory")
 set(DOTNET_DIR "" CACHE FILEPATH "Path to .NET SDK directory")
-set(CORECLR_BRANCH "release/2.1" CACHE STRING "CoreCLR source branch")
-set(DOTNET_CHANNEL "2.1" CACHE STRING ".NET SDK channel")
+set(CORECLR_BRANCH "v5.0.0-preview.6.20305.6" CACHE STRING "CoreCLR source branch")
+#set(DOTNET_CHANNEL "2.1" CACHE STRING ".NET SDK channel")
 set(BUILD_MANAGED ON CACHE BOOL "Build managed part")
 set(DBGSHIM_RUNTIME_DIR "" CACHE FILEPATH "Path to dbgshim library directory (at runtime)")
 
@@ -40,7 +40,7 @@ include(clrdefinitions.cmake)
 include(fetchdeps.cmake)
 
 # Basic checks for valid paths
-if (NOT IS_DIRECTORY "${CORECLR_DIR}/src/pal")
+if (NOT IS_DIRECTORY "${CORECLR_DIR}/src/coreclr/src/pal")
     message(FATAL_ERROR "Invalid CoreCLR source directory")
 endif()
 if (NOT "${DOTNET_DIR}" STREQUAL "")

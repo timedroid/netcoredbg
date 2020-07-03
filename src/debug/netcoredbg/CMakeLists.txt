@@ -12,21 +12,21 @@ if (NOT WIN32)
     add_compile_options(-Wno-extra-tokens)
 endif()
 add_compile_options(-D_MIDL_USE_GUIDDEF_)
-file(GLOB CORGUIDS_SOURCES "${CORECLR_DIR}/src/pal/prebuilt/idl/*_i.cpp")
+file(GLOB CORGUIDS_SOURCES "${CORECLR_DIR}/src/coreclr/src/pal/prebuilt/idl/*_i.cpp")
 add_library(corguids STATIC ${CORGUIDS_SOURCES})
 
 # Include coreclr headers
 
 if (NOT WIN32)
-    include_directories(${CORECLR_DIR}/src/pal/inc)
-    include_directories(${CORECLR_DIR}/src/pal/inc/rt)
-    include_directories(${CORECLR_DIR}/src/pal/prebuilt/inc)
+    include_directories(${CORECLR_DIR}/src/coreclr/src/pal/inc)
+    include_directories(${CORECLR_DIR}/src/coreclr/src/pal/inc/rt)
+    include_directories(${CORECLR_DIR}/src/coreclr/src/pal/prebuilt/inc)
 endif()
-include_directories(${CORECLR_DIR}/src/inc)
-include_directories(${CORECLR_DIR}/src/debug/inc)
-include_directories(${CORECLR_DIR}/src/debug/shim)
-include_directories(${CORECLR_DIR}/src/dlls/dbgshim)
-include_directories(${CORECLR_DIR}/src/coreclr/hosts/inc)
+include_directories(${CORECLR_DIR}/src/coreclr/src/inc)
+include_directories(${CORECLR_DIR}/src/coreclr/src/debug/inc)
+include_directories(${CORECLR_DIR}/src/coreclr/src/debug/shim)
+include_directories(${CORECLR_DIR}/src/coreclr/src/dlls/dbgshim)
+include_directories(${CORECLR_DIR}/src/coreclr/src/hosts/inc)
 
 # Build native part of the debugger
 
