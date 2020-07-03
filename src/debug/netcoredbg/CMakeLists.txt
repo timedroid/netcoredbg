@@ -52,6 +52,10 @@ set(netcoredbg_SRC
     valuewrite.cpp
     logger.cpp)
 
+if(NOT WIN32)
+    list(APPEND netcoredbg_SRC iids.cpp)
+endif()
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 if (NOT WIN32)
