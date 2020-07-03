@@ -63,6 +63,11 @@ if (NOT WIN32)
 endif()
 
 add_executable(netcoredbg ${netcoredbg_SRC})
+if(DBGSHIM_LOCATION)
+    add_custom_command(TARGET netcoredbg POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy "${DBGSHIM_LOCATION}" "$<TARGET_FILE_DIR:netcoredbg>"
+        COMMENT "Copy dbgshim" VERBATIM)
+endif()
 
 if (WIN32)
     target_link_libraries(netcoredbg corguids wsock32 ws2_32)
